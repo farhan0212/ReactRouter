@@ -11,6 +11,9 @@ import Customer from "./assets/components/Customer.tsx";
 import Data from "./assets/components/Data.tsx";
 import DataLayout from "./assets/page/DataLayout.tsx";
 import ProductDetail from "./assets/components/ProductDetail.tsx";
+import Image from "./assets/components/Image.tsx";
+import NotFound from "./assets/page/NotFound.tsx";
+import ProductSearch from "./assets/components/ProductSearch.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -19,13 +22,16 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<App />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/images/*" element={<Image />} />
         <Route path="/data" element={<DataLayout />}>
           <Route index element={<Data />} />
-          <Route path="product" element={<Product />} />
-          <Route path="product/:id" element={<ProductDetail />} />
-          <Route path="seller" element={<Seller />} />
-          <Route path="customer" element={<Customer />} />
+          <Route path="products" element={<Product />} />
+          <Route path="products/:id" element={<ProductDetail />} />
+          <Route path="sellers" element={<Seller />} />
+          <Route path="customers" element={<Customer />} />
+          <Route path="products/search" element={<ProductSearch />} />
         </Route>
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
